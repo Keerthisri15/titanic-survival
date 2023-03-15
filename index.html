@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Titanic Survival Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+<style>
+    body {
+      background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapercave.com%2Ftitanic-ship-hd-wallpapers&psig=AOvVaw37qCojUxQxKpu-KLTqMHQZ&ust=1678904903622000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJi6nrqG3P0CFQAAAAAdAAAAABAD');
+      background-repeat: no-repeat;
+    }
+    form {
+  text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict if you would have survived on the Titanic</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="/Titanic" method="POST">    
+	<p>Select the class you'd be travelling in:</p>
+	  <input type="radio" id="1" name="Pclass" value="1">
+	  <label for="1">1st class</label>
+	  <input type="radio" id="2" name="Pclass" value="2">
+	  <label for="2">2nd class</label>
+	  <input type="radio" id="3" name="Pclass" value="3">
+	  <label for="3">3rd class</label><br>
+	    
+	<p>What is your age?</p>
+	<input type="number" step="0" min="1" max="110" name="Age" placeholder="Age" required><br>
+	    
+	<p>How many siblings/spouses would you have on board?</p>
+	<input type="number" step="0" min="0" max="20" name="SibSp" placeholder="Siblings on board" required/><br>
+	    
+	<p>How many parents/children would you have on board?</p>
+	<input type="text" name="Parch" step="0" min="0" max="20" placeholder="Parents/children on board" required/><br>
+	    
+	<p>How much fare would you have paid for the ticket? (Avg. were $85 for 1st class, $20 for 2nd class, $14 for 3rd class)</p>
+	<label>Fare</label>
+            <input type ="value" name = "Fare" placeholder="Enter Fare"required><br>
+	    
+	<p>Which gender do you identify yourself with?</p>    
+	<label>Gender</label>
+	<input type="value" name ="Sex" placeholder="Enter Gender" required><br>
+	    
+	<p>Where would you have embarked?</p>
+	<label>Embarked</label>
+	<input type = "value" name="Embarked" placeholder ="Enter Embarked" required>
+			
+        <p><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+	<input type="button" value="Retrieve Entered Values" onclick="history.back()"></p>
+
+    {% if Survived == 0 %}
+    Not Survived
+    {% endif %}
+
+    {% if Survived == 1 %}
+    Survived
+            
+    {% endif %}
+    </form>
+									 
+
+   <br>
+   <br>
+
+ </div>
+										     
+								     
+
+</body>
+
+
+
+
+</html>
